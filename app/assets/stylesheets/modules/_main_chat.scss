@@ -1,0 +1,18 @@
+.chat-main {
+  background-color: whitesmoke;
+  height: 100vh;
+  width: calc(100vw - 600px);
+  &__groupInfo {
+    height: 100px;
+    border-bottom: 1px solid gray;
+    background-color: #fff;
+  }
+  &__messageList {
+    height: calc(100vh - 300px);
+    background-color: #fafafa;
+  }
+  &__messageForm {
+    height: 200px;
+    background-color: #d3d2d2;
+  }
+}
