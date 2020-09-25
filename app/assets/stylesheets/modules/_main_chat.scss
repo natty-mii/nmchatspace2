@@ -1,0 +1,115 @@
+.chat-main {
+  background-color: whitesmoke;
+  height: 100vh;
+  width: calc(100vw - 300px);
+  &__groupInfo {
+    height: 100px;
+    border-bottom: 1px solid gray;
+    background-color: #fff;
+    display: flex;
+    position: relative;
+    &--infoBlock {
+      padding: 35px 0 0 40px;
+      .groupName {
+        color: #333333;
+        font-size: 20px;
+      }
+      .memberName {
+        margin-top: 15px;
+        margin-bottom: 0;
+        color: #999999;
+        font-size: 12px;
+
+      }
+    }
+    &--editBtn {
+      color: #38aef0;
+      border: 1px solid #38aef0;
+      height: 40px;
+      width: 72px;
+      position: absolute;
+      right: 0;
+      margin: 28px 40px 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .btnString {
+        color: #38aef0;
+      }
+    }
+  }
+  &__messageList {
+    height: calc(100vh - 300px);
+    background-color: #fafafa;
+    .messageBox {
+      margin: 35px 0 46px 40px;
+      .userAndDate {
+        display: flex;
+        .postUser {
+          color: #333333;
+          font-size: 16px;
+          margin-right: 10px;
+        }
+        .postDate {
+          color: #999999;
+          font-size: 12px;
+        }
+      }
+      .postMessage {
+        color: #434a54;
+        font-size: 14px;
+        margin: 12px 0 46px ;
+      }
+    }
+  }
+  &__messageForm {
+    background-color: #d2d2d2;
+    height: 165px;
+    padding: 20px 50px 20px 40px;
+    .new-message {
+      display: flex;
+      .input-box {
+        width: 100%;
+        background-color: #ffffff;
+        position: relative;
+        .messageInput {
+          height: 100px;
+          width: 100%;
+          padding: 0 45px 0 15px;
+          border: none;
+        }
+        .messageImage {
+          height: 100px;
+          position: absolute;
+          top: 5px;
+          right: 10px;
+          font-size: 25px;
+          .input-file {
+            display: none;
+          }
+        }
+      }
+      .preview {
+        background-color: wheat;
+        width: 200px;
+        height: 100px;
+        margin-left: 10px;
+      }
+      .sendBtn {
+        background-color: #38aef0;
+        color: #fff;
+        font-size: 16px;
+        padding: 0 30px;
+        margin-left: 15px;
+        height: 100px;
+        border: none;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        .sendString {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
