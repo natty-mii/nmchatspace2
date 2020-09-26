@@ -2,12 +2,13 @@
   .side-bar__userName
     .top-items
       .top-items__name
-        ユーザーネーム
+        = current_user.name
       .top-items__icon
         = link_to "#", class: "top-items__btn" do
           = icon('fas', 'edit')
-        = link_to "#", class: "top-items__btn" do
-          = icon('fas', 'cog')
+        .top-items__btn
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog')
   .side-bar__groupList
     .groupList
       .groupList__name
