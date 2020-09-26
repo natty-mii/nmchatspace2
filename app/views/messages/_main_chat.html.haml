@@ -28,12 +28,13 @@
         I wanna eat oreo !!
       .postImage
   .chat-main__messageForm
-    .new-message
+    = form_with model: [@group, @message], html: {class: "new-message"}, local: true do |f|
       .input-box
-        .messageInput
-        .messageImage
-          .input-file
+        = f.text_field :content, class: "messageInput", placeholder: "メッセージを書いてね"
+        = f.label :image, class: "messageImage" do
+          = icon('far', 'image', class: 'Form__icon')
+          = f.file_field :image, class: "hidden"
       .preview
-      .sendBtn
+      = f.submit "Send", class: "sendBtn"
         .sendString
           Send
