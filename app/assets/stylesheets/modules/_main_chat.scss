@@ -39,8 +39,9 @@
     }
   }
   &__messageList {
-    height: calc(100vh - 300px);
+    height: calc(100vh - 190px);
     background-color: #fafafa;
+    overflow: scroll;
     .messageBox {
       margin: 35px 0 46px 40px;
       .userAndDate {
@@ -62,24 +63,25 @@
       }
     }
   }
-  &__messageForm {
+  .message-form {
     background-color: #d2d2d2;
-    height: 165px;
+    height: 90px;
     padding: 20px 50px 20px 40px;
     .new-message {
       display: flex;
+      justify-content: space-between;
       .input-box {
         width: 100%;
         background-color: #ffffff;
         position: relative;
-        .messageInput {
-          height: 100px;
+        .input-content {
+          height: 50px;
           width: 100%;
           padding: 0 45px 0 15px;
           border: none;
         }
-        .messageImage {
-          height: 100px;
+        .input-image {
+          height: 50px;
           position: absolute;
           top: 5px;
           right: 10px;
@@ -89,26 +91,14 @@
           }
         }
       }
-      .preview {
-        background-color: wheat;
-        width: 200px;
-        height: 100px;
-        margin-left: 10px;
-      }
-      .sendBtn {
+      .submit-btn {
         background-color: #38aef0;
         color: #fff;
         font-size: 16px;
         padding: 0 30px;
         margin-left: 15px;
-        height: 100px;
+        height: 50px;
         border: none;
-        display: flex;
-        text-align: center;
-        align-items: center;
-        .sendString {
-          font-weight: bold;
-        }
       }
     }
   }
