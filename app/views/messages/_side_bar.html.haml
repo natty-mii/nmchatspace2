@@ -1,20 +1,18 @@
 .side-bar
-  .side-bar__userName
+  .left-header
     .top-items
       .top-items__name
         = current_user.name
       .top-items__icon
-        .top-items__btn
-          = link_to new_group_path do
-            = icon('fas', 'edit')
-        .top-items__btn
-          = link_to edit_user_path(current_user) do
-            = icon('fas', 'cog')
-  .side-bar__groupList
+        = link_to new_group_path, class: "top-items__btn" do
+          = icon('fas', 'edit')
+        = link_to edit_user_path(current_user), class: "top-items__btn" do
+          = icon('fas', 'cog')
+  .side-bar__group-list
     - current_user.groups.each do |group|
-      .groupList
+      .group
         = link_to group_messages_path(group) do
-          .groupList__name
+          .group__name
             = group.name
-          .groupList__latestMessage
+          .group__message
             = group.show_last_message

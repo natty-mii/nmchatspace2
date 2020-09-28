@@ -17,6 +17,7 @@
     margin-bottom: 10px;
     letter-spacing: 3px;
     font-size: 40px;
+    color: #f05050;
     &:after {
       content: "";
       display: block;
@@ -92,7 +93,7 @@
 .UserButton {
   margin-top: 20px;
   color: #fff;
-  background-color: #38aef0;
+  background-color: rgb(19, 82, 51);
 }
 
 #error_explanation {

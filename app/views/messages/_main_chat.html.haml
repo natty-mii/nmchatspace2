@@ -1,17 +1,15 @@
 .chat-main
-  .chat-main__groupInfo
-    .chat-main__groupInfo--infoBlock
-      .groupName
+  .group-info
+    .header-left
+      .header-left__group-name
         = @group.name
-      .memberName
+      .header-left__group-member
         Member :
         = @group.users.pluck(:name).join(",")
-    = link_to edit_group_path(@group), class: "chat-main__groupInfo--editBtn" do
-      .btnString
-        Edit
-  .chat-main__messageList
-    = render partial: 'message', collection: @messages
-    -# = render @message　でも省略して可
+    = link_to edit_group_path(@group), class: "edt-btn" do
+      Edit
+  .message-list
+    = render @messages
   .message-form
     =form_with model: [@group, @message], html: {class: "new-message"}, local: true do |f|
       .input-box

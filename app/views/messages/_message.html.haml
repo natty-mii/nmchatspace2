@@ -1,11 +1,12 @@
-.messageBox
-  .userAndDate
-    .postUser
+.message-box{data: {message: {id: message.id}}}
+  .message-info
+    .message-info__post-name
       = message.user.name
-    .postDate
+    .message-info__post-date
       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-  .postMessage
+  .message
     - if message.content.present?
-      %p.Message__content
+      %p.message__content
         = message.content
-    = image_tag message.image.url, class: 'postImage' if message.image.present?
+    - if message.image.present?
+      = image_tag message.image.url, class: 'message__image'
