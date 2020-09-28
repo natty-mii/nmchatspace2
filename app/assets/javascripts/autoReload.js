@@ -1,5 +1,5 @@
-$(function () {
-  function buildHTML(message) {
+$(function(){
+  function buildHTML(message){
     if (message.image) {
       let html = `<div class="message-box" data-message-id=${message.id}>
                     <div class="message-info">
@@ -17,8 +17,8 @@ $(function () {
                       <img class="message_image" src="${message.image}">
                     </div>
                   </div>`
-      return html;
-    } else {
+                  return html;
+                } else {
       let html = `<div class="message-box" data-message-id=${message.id}>
                     <div class="message-info">
                         <div class="message-info__post-name">
@@ -34,32 +34,31 @@ $(function () {
                         </p>
                     </div>
                   </div>`
-      return html;
+                  return html;
     };
   }
-
-  $('.new-message').on('submit', function (e) {
-    e.preventDefault();
-    let formData = new FormData(this);
-    let url = $(this).attr('action');
+  
+  let reloadMessages = function() {
+    let last_message_id = $('.message-box:last').data("message-id") || 0;
     $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
+      url: "api/messages",
+      type: 'get',
       dataType: 'json',
-      processData: false,
-      contentType: false
+      data: {id: last_message_id}
     })
-      .done(function (data) {
-        let html = buildHTML(data);
-        $('.message-list').append(html);
-        $('form')[0].reset();
-        $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight });
-        $('.submit-btn').prop("disabled", false);
-      })
-      .fail(function () {
-        alert("メッセージ送信に失敗しました");
-        $('.submit-btn').prop("disabled", false);
-      });
-  });
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        let insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.message-list').append(insertHTML);
+        $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight});
+      }
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+  setInterval(reloadMessages, 7000);
 });
